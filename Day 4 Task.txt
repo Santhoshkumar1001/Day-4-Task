@@ -1,0 +1,62 @@
+1.How to compare two JSON have the same properties without order?
+let obj1 = {
+        "name": "Person1",
+        "age" : "5" ,
+        };
+        
+ let obj2 = {
+        "age":"5",
+        "name": "Person1",
+        };
+     
+    console.log(Object.is(obj1,obj2));
+
+2.Use the rest Contries 'API URL'Display the all county flag
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","https://restcountries.com/v3.1/all");
+        xhr.send();
+       xhr.onload = function()
+        {
+          
+        var data = JSON.parse(this.responseText);
+         printData(data);}
+             
+         function printData(data) {
+            if(data.length > 0)
+             {
+            for(let i= 0; i < data.length; i++) 
+            
+            {
+                const { name = {}, region = '', subregion = '', population = 0, flags = {} } = data[i];
+                console.log(name.common, region, subregion, population,flags.png);
+            }
+        
+             }
+
+3.Print the all name,region,sub-region And population.
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open("GET","https://restcountries.com/v3.1/all");
+ 
+        xhr.send();
+
+        xhr.onload = function()
+        {
+           
+          var data = JSON.parse(this.responseText);
+          printData(data);}
+             
+          function printData(data) 
+            {
+            if(data.length > 0)
+             {
+            for(let i= 0; i < data.length; i++) 
+            
+            {
+             const { name = {}, region = '', subregion = '', population = 0 } = data[i];
+
+             onsole.log(name.common, region, subregion, population);
+            }
+        
+             }
